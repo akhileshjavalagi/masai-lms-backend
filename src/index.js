@@ -4,12 +4,18 @@ const connect = require("./configs/db");
 const cors = require("cors");
 
 const userController = require('./controllers/users.controllers')
+const assignmentController = require("./controllers/assignments.controllers");
+const lectureController = require("./controllers/lectures.controllers");
+const adminConctroller = require("./controllers/admin.controllers");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 app.use('/users',userController);
+app.use('/assignment', assignmentController);
+app.use('/lecture', lectureController);
+app.use("/admin", adminConctroller);
 
 app.listen(2468, async () => {
   try {
