@@ -7,10 +7,14 @@ const userController = require('./controllers/users.controllers')
 const assignmentController = require("./controllers/assignments.controllers");
 const lectureController = require("./controllers/lectures.controllers");
 const adminConctroller = require("./controllers/admin.controllers");
+const { register, login } = require('./controllers/auth.controllers');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.use('/register',register)
+app.use('/login',login)
 
 app.use('/users',userController);
 app.use('/assignment', assignmentController);
